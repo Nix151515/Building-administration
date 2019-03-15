@@ -14,7 +14,7 @@
 		die("Connection failed: " . mysqli_connect_error());
 	}
 	//echo "(Connected successfully to MySQL server)<br><br>";
-	echo "<script>console.log( 'Connected successfully to MySQL server' );</script>";
+	// echo "<script>console.log( 'Connected successfully to MySQL server' );</script>";
 	 
 	// select the database
 	$db = mysqli_select_db($connect,$database);
@@ -27,9 +27,13 @@
 		name VARCHAR(30) NOT NULL,
 		surname VARCHAR(30) NOT NULL,
 		password VARCHAR(50) NOT NULL,
-		email VARCHAR(50)
+		email VARCHAR(50),
+		login DATETIME DEFAULT NOW()
 		);";
 	
 	// apply the query to create the table
-	mysqli_query($connect, $sql);
+	$result = mysqli_query($connect, $sql);
+	// if(!$result) { 
+		// echo "<p> Table not created</p>";
+	// }
 ?>

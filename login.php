@@ -26,22 +26,44 @@
 			// Save the credentials in session variables for further use
 			$_SESSION['name'] = $name;
 			$_SESSION['password'] = $password;
-	 
+
+			$sql = "SELECT id FROM users WHERE name = ". "'$name'".  "AND password =". "'$password'"  ." ;";	
+			$result = mysqli_query($connect,$sql);
+			if($result) {
+				$out = mysqli_fetch_assoc($result);
+				
+
+				// LA FEL CA FETCH ROW DAR INTOARCE ARRAY ASOCIATIV, NU NUMERIC
+				// $out = mysqli_fetch_assoc($result);
+				// echo $out["id"];
+
+				// FETCH ROW INTOARCE UN ARRAY CU CAMPURILE REZULTATULUI (Doar 1)
+				// $out = mysqli_fetch_row($result);
+				// echo $out[0];
+
+				// PENTRU MAI MULTE REZULTATE
+				// while($out = mysqli_fetch_assoc($result))
+			}
+			else {
+				echo "<p> Nasoleo (User ID not found) </p>";
+			}
+
+			$_SESSION['id'] = $out["id"];
+			$id = $_SESSION['id'];
+
+
+			$sql ="UPDATE users SET login = SYSDATE() WHERE id = "."'$id'". ";";
+			$result = mysqli_query($connect,$sql);
+			if($result) {
+				echo '<p "style=color:green"> <i>Update succesful</i></p>';
+			} else {
+				echo '<p "style=color:red"> <i>Update failed </i></p>';
+			}
+	 		
 			// Success message     
 			echo '<p "style=color:green"> <i>Authentication succesful</i></p>';
-			// Set a cookie with the last time visit or display it if exists
-			// if(isset($_COOKIE[$username]))
-			// {
-			// 	$lastVisit = $_COOKIE[$username]; 
-			// 	setcookie($username, date("d/m/y h:i:s"), time()+60*60*24*7, "/","", 0); // a week
-			// 	echo "<h1>Hello $username, welcome back !<br>
-			// 				Your last login : $lastVisit</h1>";
-			// }
-			// else
-			// {
-			// 	setcookie($username, date("d/m/y h:i:s"), time()+60*60*24*7, "/","", 0); // a week
-			// 	echo "<h1>Welcome, $username ! <br></h1>";
-			// }
+
+
 		}
 	}
 	else
