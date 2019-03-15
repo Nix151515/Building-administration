@@ -109,7 +109,7 @@ require_once("dbconnect.php");
 				marker.setMap(map);
 			}
 		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVn9-H4vxfuCzjxfr0hb5dvMBJ07iaccU&callback=myMap"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=<API>&callback=myMap"></script>
 
 								<!--  Register and login forms div  -->
 		<div id="registerDiv" >
