@@ -28,7 +28,9 @@
 		surname VARCHAR(30) NOT NULL,
 		password VARCHAR(50) NOT NULL,
 		email VARCHAR(50),
-		login DATETIME DEFAULT NOW()
+		login DATETIME DEFAULT NOW(),
+		lat FLOAT(7,5),
+		lng FLOAT(7,5)
 		);";
 	
 	// apply the query to create the table

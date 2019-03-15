@@ -19,12 +19,16 @@
 	}
 
 	echo "<h3> Here are the users and their last connection status: </h3>";
-	$sql = "SELECT name, login FROM users;";	
+	$sql = "SELECT id,name, login, lat, lng FROM users;";	
 	$result = mysqli_query($connect,$sql);
 	if($result) {
 		while($out = mysqli_fetch_assoc($result))
 		{
-			echo $out["name"]. "  ,  " . $out["login"]."<br>";
+			echo $out["name"]. ", ".
+				 $out["login"].", ".
+				 $out["lat"].", ".
+				 $out["lng"];
+			echo "<input type='button' value='User Info' onclick=showInfo(".$out['id'].")><br>";
 		}
 	}
 	else {
@@ -36,6 +40,9 @@
  <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script>
+
+		</script>
 		<meta charset="utf-8"/>
 		<title>Main Page</title>
 	</head>

@@ -12,6 +12,8 @@
 		$surname = $_GET['register_surname'];
 		// $password = md5($_GET['register_password']);
 		$password = $_GET['register_password'];
+		$lat = $_GET['lat'];
+		$lng = $_GET['lng'];
 		if($_GET['register_email'] != "")
 			$email = $_GET['register_email'];
 		else
@@ -19,7 +21,7 @@
 		
 		
 		// Build the query based on the data received
-		$query = "INSERT INTO $table (name,surname,password,email) VALUES ('$name','$surname','$password','$email')";
+		$query = "INSERT INTO $table (name,surname,password,email,lat,lng) VALUES ('$name','$surname','$password','$email','$lat','$lng')";
 		
 		// Execute the query
 		$result = mysqli_query($connect,$query);
