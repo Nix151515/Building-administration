@@ -45,7 +45,7 @@ require_once("dbconnect.php");
 						<p type="text" id="longitude" value="ASD" hidden> ASD</p>
 						<p type="text" id="err"></p>
 			    	</div>
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVn9-H4vxfuCzjxfr0hb5dvMBJ07iaccU"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<API_KEY>"></script>
 
 
 
