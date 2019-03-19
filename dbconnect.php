@@ -4,7 +4,7 @@
 	$database = "ProgramareWeb";
 	$username = "root";
 	$parola = "admin";
-	$table = "users";
+	$table = "utilizatori";
 	 
 	// connect to MySQL server
 	$connect = mysqli_connect($server, $username, $parola);
@@ -22,7 +22,7 @@
 		die("Connection to database failed".mysqli_error($connect));
 	
 	// write the query to create the table
-	$sql = "CREATE TABLE users (
+	$sql = "CREATE TABLE utilizatori (
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 		name VARCHAR(30) NOT NULL,
 		surname VARCHAR(30) NOT NULL,
@@ -35,7 +35,5 @@
 	
 	// apply the query to create the table
 	$result = mysqli_query($connect, $sql);
-	// if(!$result) { 
-		// echo "<p> Table not created</p>";
-	// }
+	
 ?>

@@ -19,15 +19,16 @@
 	}
 
 	echo "<h3> Here are the users and their last connection status: </h3>";
-	$sql = "SELECT id,name, login, lat, lng FROM users;";	
+	$sql = "SELECT id,name, login, lat, lng FROM utilizatori;";	
 	$result = mysqli_query($connect,$sql);
 	if($result) {
 		while($out = mysqli_fetch_assoc($result))
 		{
-			echo $out["name"]. ", ".
-				 $out["login"].", ".
-				 $out["lat"].", ".
-				 $out["lng"];
+			echo $out["name"];
+				// . ", ".
+				//  $out["login"].", ".
+				//  $out["lat"].", ".
+				//  $out["lng"];
 			echo "<input type='button' value='User Info' onclick=showInfo(".$out['id'].")><br>";
 		}
 	}

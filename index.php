@@ -10,14 +10,7 @@ require_once("dbconnect.php");
 		<script src="scripts.js"></script>	
 	</head>
 
-
-
 	<body>
-
-								
-
-
-
 
 								<!--  Register and login forms div  -->
 		<div id="registerDiv" >
@@ -45,7 +38,7 @@ require_once("dbconnect.php");
 						<p type="text" id="longitude" value="ASD" hidden> ASD</p>
 						<p type="text" id="err"></p>
 			    	</div>
-					<script src="https://maps.googleapis.com/maps/api/js?key=<API_KEY>"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVn9-H4vxfuCzjxfr0hb5dvMBJ07iaccU"></script>
 
 
 
@@ -73,39 +66,6 @@ require_once("dbconnect.php");
 				</fieldset>
 			</form>
 		</div>
-
-
-
 	</body>
 
 </html>
-
-<script type="text/javascript">
-	// function myMap() {
-			// 	var lat = 44;
-			// 	var long = 26;
-			// 	var user = "Gigi";
-
-			// 	var marker = new google.maps.Marker({
-			// 	  position: new google.maps.LatLng(lat, long)
-			// 	});
-
-			// 	var mapProp= {
-			// 	  center:new google.maps.LatLng(lat, long),
-			// 	  zoom:5
-			// 	};
-			// 	var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-			// 	var infowindow = new google.maps.InfoWindow({
-			// 	  content:`User: ${user}`
-			// 	});
-
-			// 	google.maps.event.addListener(marker,'click',function() {
-			// 		infowindow.open(map,marker);
-			// 		map.setZoom(9);
-			// 		map.setCenter(marker.getPosition());
-			// 	});
-
-			// 	marker.setMap(map);
-			// }
-</script>

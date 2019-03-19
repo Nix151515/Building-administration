@@ -84,6 +84,7 @@ function initMap() {
 
 function showInfo(id) {
 	console.log(id);
+	
 	// Aci tre' sa ii dau un request sa iau date
 }
 			
@@ -138,3 +139,4 @@ function codeAddress(){
 		}
 	});
 }
+
