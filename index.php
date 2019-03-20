@@ -1,71 +1,66 @@
+
 <?php
-session_start();
-require_once("dbconnect.php");
+	session_start();
+	require_once("langs.php");
+	// echo $_SESSION['lang'];
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 	<head>
+
+		<title> P16 </title>
+
 		<meta charset="utf-8"/>
-		<title>Register / Login</title>
-		<script src="scripts.js"></script>	
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVn9-H4vxfuCzjxfr0hb5dvMBJ07iaccU"></script>
+		<script src="script.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	</head>
 
-	<body>
-
-								<!--  Register and login forms div  -->
-		<div id="registerDiv" >
-			<h1 style="font-size:200%;color:Grey;text-align:center;font-family:verdana">Register/Login</h1>
-			<form name="register_form" action="index.php" method="get">
-				<fieldset style="width:50%;margin: 0 auto;">
-					<legend>Create a new account:</legend>
-					Name<br>
-					<input type="text" name="register_name" id="register_name"/><br><br>
-					Surname<br>
-					<input type="text" name="register_surname" id="register_surname"/><br><br>
-					Email (optional)<br>
-					<input type="email" name="register_email" id="register_email"/><br><br>
-					Password<br>
-					<input type="password" name="register_password" id="register_password"/><br><br>
-
-							<!-- Google Map elements -->
-
-					<div id="mapDiv">
-						Address<br>
-						<input id="address" type="textbox" value="Regie, Bucuresti">
-						<input type="button" value="Check address" onclick="codeAddress()">
-						<div id="googleMap"></div><br>
-						<p id="latitude" value="ASD" hidden> ASD</p><br>
-						<p type="text" id="longitude" value="ASD" hidden> ASD</p>
-						<p type="text" id="err"></p>
-			    	</div>
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVn9-H4vxfuCzjxfr0hb5dvMBJ07iaccU"></script>
-
-
-
-					<input type="button" name="register_btn" value="Register" onclick="register()"/>
-					<input type="reset" value="Erase fields"> <br>
-
-					<div id="registerResp">
-					</div>
-				</fieldset>
-			</form>
-			<br>
+	<body id="pageContent">
+			<!-- <div style="float:right;">
+				<img src="pictures/ro_flag.png" style="width:70px;height: 50px;" onclick="changeLang('ro')">  </img>
+				<img src="pictures/uk_flag.png" style="width:70px;height: 50px;" onclick="changeLang('en')">  </img>
+			</div> -->
 			
-			<!--  Login form  -->
-			<form name="login_form" action="login.php" method="post">
-				<fieldset style="width:50%;margin: 0 auto;">
-					<legend>Login :</legend>
-					Name<br>
-					<input type="text" name="login_name" id="login_name" /><br><br>
-					Password<br>
-					<input type="password" name="login_password" id="login_password"/><br><br>
-					<input type="button" name="login_btn" value="Login" onclick="login()"/>
-					<input type="reset" value="Erase fields"> <br>
-					<div id="loginResp">
-					</div>
-				</fieldset>
-			</form>
-		</div>
+			<div id="mainPage">
+
+				<div style="float:right;">
+					<img src="pictures/ro_flag.png" class="flag" onclick="changeLang('ro')">  </img>
+					<img src="pictures/uk_flag.png" class="flag" onclick="changeLang('en')">  </img>
+				</div>
+
+				<br><br><br>
+
+
+				<h1 class="title"> <?php echo $lang['startPage'] ?> </h1>
+				<div class="centered">
+					<button onclick="loadPage('registerPage.php')" class="half"> <?php echo $lang['register'] ?> </button>
+					<button onclick="loadPage('loginPage.php')" class="half"> <?php echo $lang['login'] ?> </button>
+				</div>
+			</div>
+
+
+			<footer id="footer">
+
+				<?php
+					$path    = '.';
+					$files = scandir($path);
+					$files = array_diff(scandir($path), array('.', '..'));
+					$i = 0;
+					for($i = 2; $i< count($files); $i ++)
+					{
+						if (strpos($files[$i], 'Page') !== false)
+						{
+							$fileTitle = ucfirst(str_replace("Page.php", "", $files[$i]));
+							echo "<a onclick=loadPage('$files[$i]')>".$fileTitle."</a><br>";
+						}
+					}
+				?>
+			</footer>
+	
 	</body>
 
 </html>

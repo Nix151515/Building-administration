@@ -1,0 +1,150 @@
+.title {
+	font-size:200%;
+	color: rgb(29, 41, 81);
+	text-align:center;
+	font-family: verdana;
+}
+
+.centered {
+	width: 50%;
+	margin: 0 auto;
+	/*background-color: rgb(87, 160, 211);*/
+}
+
+.half {
+	min-width: 49%;
+	margin-top: 10px;
+}
+
+a:hover {
+	color: rgb(29, 41, 81);
+	cursor:pointer;
+}
+
+#footer {
+  bottom: 0;
+  width: 100%;
+  /*background-color: rgb(149, 200, 216);*/
+  background-color: rgb(88, 139, 174);
+  text-align:center;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+#userBlock {
+	display: inline-block;
+	position: relative;
+	border : 1px solid red;
+}
+
+
+span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+button {
+	  display: inline-block;
+	  padding: 15px 25px;
+	  font-size: 24px;
+	  cursor: pointer;
+	  text-align: center;
+	  color: #fff;
+	  background-color: rgb(15, 82, 186);
+	  border: none;
+	  border-radius: 15px;
+}
+
+button:hover {
+	background-color: rgb(16, 52, 166);
+}
+
+
+
+input {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  width: 100%;
+  background-color: rgb(15, 82, 186);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+input[type=button]:hover {
+  background-color: rgb(16, 52, 166);
+}
+
+input.showUser {
+	float:right;
+	width: auto;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+
+#users {
+	display: inline-block;
+	overflow:auto;
+	width: 30%;
+	/*background-color: rgb(134, 121, 121);*/
+
+}
+
+.user {
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.user:hover {
+	background-color: rgb(0, 128, 255);
+}
+
+.icon {
+	height:60px;
+	width: 60px;
+	vertical-align: middle;
+}
+#loginDiv, #registerDiv {
+  border-radius: 5px;
+}
+
+
+#pageContent {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+#mainPage {
+	flex: 1;
+	margin-bottom: 20px;
+}
+
+html {
+	/*background-image: url('pictures/camin.jpg');*/
+	/*background-repeat: no-repeat;*/
+	/*background-position: center;*/
+	/*background-size: cover;*/
+	background-color : rgb(176,223,229);
+}
+
+.flag {
+	width:70px;
+	height: 50px;
+	cursor: pointer;
+}

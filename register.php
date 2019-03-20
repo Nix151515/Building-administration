@@ -1,6 +1,11 @@
+
+
+
+
 <?php
 	session_start();
 	require_once("dbconnect.php");
+	// error_reporting(E_ERROR | E_PARSE);
 	 
 	//  Verify that fields are not empty
 	// echo $_GET['register_password'];
@@ -27,17 +32,17 @@
 		$result = mysqli_query($connect,$query);
 		if(!$result)
 		{
-			echo '<p "style=color:red"> <i>Error inserting</i></p>';
+			echo '<p> <i>Error inserting</i></p>';
 			die ("Error inserting: ". mysqli_error($connect));
 		}
 		else
 		{
-			echo '<p "style=color:green"> <i>New account created successfully</i></p>';
+			echo '<p> <i>New account created successfully</i></p>';
 		}
 	}
 	// Fields empty
 	else 
 	{
-		echo '<p "style=color:red"> <i>Please complete all the required fields</i></p>';
+		echo '<p> <i>Please complete all the required fields</i></p>';
 	}
 ?>

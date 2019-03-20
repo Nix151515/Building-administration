@@ -19,7 +19,7 @@
 		// Check if the query executed successfully
 		if (!$result || mysqli_num_rows($result) < 1)
 		{
-			echo '<p "style=color:red"> <i>Incorrect data</i></p>';
+			echo '<p> <i>Incorrect data</i></p>';
 		} 
 		else
 		{
@@ -27,7 +27,7 @@
 			$_SESSION['name'] = $name;
 			$_SESSION['password'] = $password;
 
-			$sql = "SELECT id FROM users WHERE name = ". "'$name'".  "AND password =". "'$password'"  ." ;";	
+			$sql = "SELECT id FROM $table WHERE name = ". "'$name'".  "AND password =". "'$password'"  ." ;";	
 			$result = mysqli_query($connect,$sql);
 			if($result) {
 				$out = mysqli_fetch_assoc($result);
@@ -52,22 +52,23 @@
 			$id = $_SESSION['id'];
 
 
-			$sql ="UPDATE users SET login = SYSDATE() WHERE id = "."'$id'". ";";
+			$sql ="UPDATE $table SET login = SYSDATE() WHERE id = "."'$id'". ";";
 			$result = mysqli_query($connect,$sql);
 			if($result) {
-				echo '<p "style=color:green"> <i>Update succesful</i></p>';
+				echo '<p> <i>Update succesful</i></p>';
 			} else {
-				echo '<p "style=color:red"> <i>Update failed </i></p>';
+				echo '<p> <i>Update failed </i></p>';
 			}
 	 		
 			// Success message     
-			echo '<p "style=color:green"> <i>Authentication succesful</i></p>';
+			echo '<p> <i>Authentication succesful</i></p>';
 
 
 		}
 	}
 	else
 	{
-		echo '<p "style=color:red"> <i>Please complete all the fields </i></p>';
+		echo '<p> <i>Please complete all the fields </i></p>';
 	}
 ?>
+
