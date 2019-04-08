@@ -5,14 +5,12 @@
 <?php
 	session_start();
 	require_once("dbconnect.php");
-	// error_reporting(E_ERROR | E_PARSE);
-	 
-	//  Verify that fields are not empty
-	// echo $_GET['register_password'];
-	
-	if ($_GET['register_name'] != "" && $_GET['register_surname'] != "" && $_GET['register_password'] != '') 
+	include 'languages/lang_'.$_SESSION['lang'].'.php';
+
+	/* 			If data sent correctly		*/
+	if ($_GET['register_name'] != "" && $_GET['register_surname'] != "" && $_GET['register_password'] != '' && $_GET['register_room'] != "") 
 	{
-		// Take the form data
+		/*			Take the form data 			*/
 		$name = $_GET['register_name'];
 		$surname = $_GET['register_surname'];
 		// $password = md5($_GET['register_password']);
@@ -23,12 +21,14 @@
 			$email = $_GET['register_email'];
 		else
 			$email = '';
+		$room = $_GET['register_room'];
 		
 		
-		// Build the query based on the data received
-		$query = "INSERT INTO $table (name,surname,password,email,lat,lng) VALUES ('$name','$surname','$password','$email','$lat','$lng')";
+		/*		 Build the query based on the data received   */
+		$query = "INSERT INTO $table (name,surname,password,email,lat,lng,room) 
+		VALUES ('$name','$surname','$password','$email','$lat','$lng', '$room')";
 		
-		// Execute the query
+		/*		 Execute the query   */
 		$result = mysqli_query($connect,$query);
 		if(!$result)
 		{
@@ -40,9 +40,8 @@
 			echo '<p> <i>New account created successfully</i></p>';
 		}
 	}
-	// Fields empty
 	else 
 	{
-		echo '<p> <i>Please complete all the required fields</i></p>';
+		echo '<p> <i>'.$lang['reqFields'].'</i></p>';
 	}
 ?>

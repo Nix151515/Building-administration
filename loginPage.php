@@ -1,7 +1,5 @@
 
 <?php
-	// require_once("langs.php");
-	// echo $_SESSION['lang'];
 	session_start();
 	include 'languages/lang_'.$_SESSION['lang'].'.php';
 ?>
@@ -10,7 +8,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<!-- <script src="scripts.js"></script>	 -->
 	</head>
 
 	<body>

@@ -8,7 +8,6 @@
 .centered {
 	width: 50%;
 	margin: 0 auto;
-	/*background-color: rgb(87, 160, 211);*/
 }
 
 .half {
@@ -16,6 +15,29 @@
 	margin-top: 10px;
 }
 
+
+ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  background-color: rgb(15, 82, 186);
+	}
+
+li a {
+	float:left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+  background-color: rgb(16, 52, 166);
+}
+
+	
 a:hover {
 	color: rgb(29, 41, 81);
 	cursor:pointer;
@@ -24,7 +46,6 @@ a:hover {
 #footer {
   bottom: 0;
   width: 100%;
-  /*background-color: rgb(149, 200, 216);*/
   background-color: rgb(88, 139, 174);
   text-align:center;
   font-size: 20px;
@@ -89,25 +110,14 @@ input[type=button]:hover {
   background-color: rgb(16, 52, 166);
 }
 
-input.showUser {
-	float:right;
-	width: auto;
-	vertical-align: middle;
-	margin-right: 10px;
-}
 
-
-#users {
-	display: inline-block;
-	overflow:auto;
-	width: 30%;
-	/*background-color: rgb(134, 121, 121);*/
-
-}
+/*div#users {
+	width: 50%;
+	margin: 0 auto;
+}*/
 
 .user {
 	margin-bottom: 10px;
-	box-sizing: border-box;
 }
 
 .user:hover {
@@ -136,15 +146,41 @@ input.showUser {
 }
 
 html {
-	/*background-image: url('pictures/camin.jpg');*/
-	/*background-repeat: no-repeat;*/
-	/*background-position: center;*/
-	/*background-size: cover;*/
 	background-color : rgb(176,223,229);
 }
 
 .flag {
-	width:70px;
+	width: 70px;
 	height: 50px;
 	cursor: pointer;
 }
+
+#userData {
+	text-align: center;
+	width: auto;
+}
+
+#userFetchedData, h2#userName h2#userSurname{
+	background-color: rgb(15, 82, 186);
+	color: white;
+	width: 70%;
+	margin: 0 auto;
+}
+
+h3, h2, h4, h1{
+	text-align: center;
+}
+
+input.paid, input.paid:hover {
+	background-color: green;
+}
+
+
+input.unpaid {
+	background-color: rgb(178,34,34);
+}
+
+input.unpaid:hover {
+	background-color: rgb(150,0,0);
+}
+

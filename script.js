@@ -12,7 +12,76 @@ function initMap() {
 function showInfo(id) {
 	console.log(id);
 
-	// Aci tre' sa ii dau un request sa iau date
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+
+			var user = JSON.parse(this.responseText);
+
+			document.getElementById('userName').innerHTML = user.name;
+			document.getElementById('userSurname').innerHTML = user.surname;
+			document.getElementById('userConnection').innerHTML = user.time;
+
+			var geocoder = new google.maps.Geocoder();
+			var latlng = new google.maps.LatLng(user.lat, user.lng);
+						
+			var mapOptions = {
+				zoom: 8,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.HYBRID
+			};
+
+			// la marker
+			// icon:'pictures/ok.jpg',
+
+			// la infowindow
+			// content: user.name+"'s address"
+
+
+			map = new google.maps.Map(document.getElementById('userMap'), mapOptions);
+			document.getElementById('userMap').style.height = "60vh";
+			document.getElementById('userMap').style.width = "100%";
+
+			var marker = new google.maps.Marker({
+				map: map,
+				position: latlng,
+				animation:google.maps.Animation.BOUNCE
+			});
+
+			var circle = new google.maps.Circle({
+	            center: latlng,
+	            map: map,
+	            radius: 10000,          // IN METERS.
+	            fillColor: '#FF6600',
+	            fillOpacity: 0.3,
+	            strokeColor: "#FFF",
+	            strokeWeight: 0         // DON'T SHOW CIRCLE BORDER.
+	        });
+
+			var infowindow = new google.maps.InfoWindow({
+				content:`Your address`
+			});
+
+			google.maps.event.addListener(marker,'click',function() {
+				infowindow.open(map,marker);
+				map.setZoom(12);
+				map.setCenter(marker.getPosition());
+			});
+
+			// google.maps.event.addListener(map,'click',function() {
+			// 	map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+			// });
+
+			// google.maps.event.addListener(map, 'rightclick', function() {
+			// 	mapTypeId: 'terrain'
+			// })
+
+			marker.setMap(map);
+		}
+	}
+
+	xmlhttp.open("GET", "usersFunctions.php?id="+id, true);
+	xmlhttp.send();
 }
 			
 function codeAddress(){
@@ -86,7 +155,8 @@ function codeAddress(){
 				var surname = document.getElementById("register_surname").value;
 				var password = document.getElementById("register_password").value;
 				var email = document.getElementById("register_email").value;
-				console.log("Before req",name,surname,password, email);
+				var room = document.getElementById("register_room").value;
+				console.log("Name: ",name,"Surname :",surname,"Password: ",password,"Email: ", email,"Room: ", room);
 
 			    xmlhttp.onreadystatechange = function() {
 			    	// console.log(this.readyState,this.status);
@@ -94,7 +164,7 @@ function codeAddress(){
 				        document.getElementById("registerResp").innerHTML = this.responseText;
 				        // console.log(this.responseText);
 						if(this.responseText.includes("account created"))
-							loadPage("loginPage.php");
+							loadPage("loginPage.php", "mainPage");
 				    }
 				};
 
@@ -104,7 +174,8 @@ function codeAddress(){
 						    "&register_password="+password+
 						    "&register_email="+email+
 						    "&lat="+lat.innerHTML+
-						    "&lng="+lng.innerHTML
+						    "&lng="+lng.innerHTML+
+						    "&register_room="+room
 						     , true);
 
 				xmlhttp.send();
@@ -121,8 +192,10 @@ function codeAddress(){
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("loginResp").innerHTML = this.responseText;
 				// console.log(this.responseText);
-				if(this.responseText.includes("Authentication succesful"))
-					loadPage("mainPage.php");
+				if(this.responseText.includes("Authentication succesful, user"))
+					loadPage("userMainPage.php", "mainPage");
+				if(this.responseText.includes("Authentication succesful, admin"))
+					loadPage("adminMainPage.php", "mainPage");
 				}
 			};
 
@@ -132,11 +205,11 @@ function codeAddress(){
 					    xmlhttp.send();
 		}
 
-		function loadPage(page) {
+		function loadPage(page, element) {
 				var xhttp = new XMLHttpRequest();
 				xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("mainPage").innerHTML =this.responseText;
+						document.getElementById(element).innerHTML =this.responseText;
 					}
 				};
 				xhttp.open("GET", page, true);
@@ -154,3 +227,29 @@ function codeAddress(){
 				xmlhttp.open("GET", "index.php?lang="+language, true);
 				xmlhttp.send();
 		}
+
+		function pay(id, element, month) {
+			console.log(id);
+			
+			
+
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				    if (this.readyState == 4 && this.status == 200) {
+				    	element.disabled = true;
+						element.style.backgroundColor = "green";
+						str = element.value;
+						element.value = str.replace("unpaid", "paid");
+						// element.value += ' (ok)';
+				    	console.log("payment done");
+				    }
+				};
+
+			xmlhttp.open("GET", "payment.php?id="+id+"&month="+month, true);
+			xmlhttp.send();
+		}
+
+
+		// function getUsers(element) {
+		// 	console.log("laba");
+		// }

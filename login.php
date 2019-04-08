@@ -29,24 +29,12 @@
 
 			$sql = "SELECT id FROM $table WHERE name = ". "'$name'".  "AND password =". "'$password'"  ." ;";	
 			$result = mysqli_query($connect,$sql);
-			if($result) {
+
+			if($result) 
 				$out = mysqli_fetch_assoc($result);
-				
-
-				// LA FEL CA FETCH ROW DAR INTOARCE ARRAY ASOCIATIV, NU NUMERIC
-				// $out = mysqli_fetch_assoc($result);
-				// echo $out["id"];
-
-				// FETCH ROW INTOARCE UN ARRAY CU CAMPURILE REZULTATULUI (Doar 1)
-				// $out = mysqli_fetch_row($result);
-				// echo $out[0];
-
-				// PENTRU MAI MULTE REZULTATE
-				// while($out = mysqli_fetch_assoc($result))
-			}
-			else {
+			else 
 				echo "<p> Nasoleo (User ID not found) </p>";
-			}
+
 
 			$_SESSION['id'] = $out["id"];
 			$id = $_SESSION['id'];
@@ -54,21 +42,25 @@
 
 			$sql ="UPDATE $table SET login = SYSDATE() WHERE id = "."'$id'". ";";
 			$result = mysqli_query($connect,$sql);
+			
 			if($result) {
 				echo '<p> <i>Update succesful</i></p>';
 			} else {
 				echo '<p> <i>Update failed </i></p>';
 			}
 	 		
-			// Success message     
-			echo '<p> <i>Authentication succesful</i></p>';
+			// Success message
+			if($name == 'admin')     
+				echo '<p> <i>Authentication succesful, admin</i></p>';
+			else
+				echo '<p> <i>Authentication succesful, user</i></p>';
 
 
 		}
 	}
 	else
 	{
-		echo '<p> <i>Please complete all the fields </i></p>';
+		echo '<p> <i>'.$lang['reqFields'].'</i></p>';
 	}
 ?>
 

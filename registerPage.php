@@ -1,9 +1,6 @@
 
 <?php
-	// require_once("langs.php");
-	
 	session_start();
-	// echo $_SESSION['lang'];
 	include 'languages/lang_'.$_SESSION['lang'].'.php';
 ?>
 
@@ -11,7 +8,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<!-- <script src="scripts.js"></script>	 -->
 	</head>
 
 	<body>
@@ -21,10 +17,16 @@
 				<div class="centered">
 					<?php echo $lang['name'] ?><br>
 					<input type="text" name="register_name" id="register_name"/><br><br>
+
 					<?php echo $lang['surname'] ?><br>
 					<input type="text" name="register_surname" id="register_surname"/><br><br>
+
+					<?php echo $lang['room'] ?><br>
+					<input type="number" name="register_room" id="register_room" min="100" max="600"/><br><br>
+
 					<?php echo $lang['email'] ?> (optional)<br>
 					<input type="email" name="register_email" id="register_email"/><br><br>
+
 					<?php echo $lang['password'] ?><br>
 					<input type="password" name="register_password" id="register_password"/><br><br>
 

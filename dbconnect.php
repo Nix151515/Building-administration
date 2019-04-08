@@ -6,22 +6,20 @@
 	$parola = "admin";
 	$table = "utilizatori";
 	 
-	// connect to MySQL server
+	/*			Connect to the SQL server 		*/
 	$connect = mysqli_connect($server, $username, $parola);
 	 
-	 // verify the connection
+	/*			Verify the connection  		*/
 	if (!$connect) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	//echo "(Connected successfully to MySQL server)<br><br>";
-	// echo "<script>console.log( 'Connected successfully to MySQL server' );</script>";
-	 
-	// select the database
+
+	/*			Select the database 		*/
 	$db = mysqli_select_db($connect,$database);
 	if(!$db)
 		die("Connection to database failed".mysqli_error($connect));
 	
-	// write the query to create the table
+	/*			Write the query to create the users table    		*/
 	$sql = "CREATE TABLE utilizatori (
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 		name VARCHAR(30) NOT NULL,
@@ -30,10 +28,13 @@
 		email VARCHAR(50),
 		login DATETIME DEFAULT NOW(),
 		lat FLOAT(7,5),
-		lng FLOAT(7,5)
+		lng FLOAT(7,5),
+		room INT(3) NOT NULL,
+		month1 INT(2) default 0,
+		month2 INT(2) default 0
 		);";
 	
-	// apply the query to create the table
+	/*			Apply the query 		*/
 	$result = mysqli_query($connect, $sql);
 	
 ?>
