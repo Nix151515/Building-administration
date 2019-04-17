@@ -6,7 +6,17 @@
 	require_once("dbconnect.php");
 	$name = $_SESSION['name'];
 	// require_once("index.php");
+?>
 
+
+<div id='adminMainPage'>
+<ul>
+	<li><a onclick='loadPage(`adminMainPage.php`,`adminMainPage`)'><?php echo $lang['adminPage']; ?></a></li>
+	<li><a onclick='loadPage(`charts.php`,`adminMainPage`); getWidths()'><?php echo $lang['chart']; ?></a></li>
+</ul>
+
+
+<?php
 /*		Set login cookies  	*/
 	if(isset($_COOKIE[$name]))
 	{
@@ -23,6 +33,8 @@
 
 
 <?php
+	// echo "<input type='button' value='See users chart' onclick='loadPage(`charts.php`, `mainPage`)'>";
+
 
 $sql = "SELECT * FROM utilizatori;";	
 	$result = mysqli_query($connect,$sql);
@@ -107,3 +119,4 @@ $sql = "SELECT * FROM utilizatori;";
 			</div>
 		</div>';
 ?>
+</div>

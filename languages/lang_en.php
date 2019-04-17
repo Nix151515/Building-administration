@@ -51,6 +51,8 @@
 	$lang['months'] = "months";
 	$lang['less_an_hour'] = "Connected in less than an hour";
 	$lang['searchLabel'] = "Search by first name, last name or room: ";
+	$lang['chart'] = "Connection chart";
+	$lang['adminPage']= "Users";
 
 	$lang['rulesTitle'] = "<h2> The rights and duties of people living in the housing </h2>";
 

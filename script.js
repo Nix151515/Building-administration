@@ -249,7 +249,102 @@ function codeAddress(){
 			xmlhttp.send();
 		}
 
+		function getWidths() {
+		console.log("reached widths");
+	 	var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var week = JSON.parse(this.responseText)
+			    // console.log(week.monday)
 
-		// function getUsers(element) {
-		// 	console.log("laba");
-		// }
+			    
+			 	let mondayUsers = week.monday;
+			    let tuesdayUsers = week.tuesday;
+			    let wednesdayUsers = week.wednesday;
+			    let thursdayUsers = week.thursday;
+			    let fridayUsers = week.friday;
+			    let saturdayUsers = week.saturday;
+			    let sundayUsers = week.sunday;
+
+
+
+				let blockWidth = 5;
+			    let blockHeight = 10;
+			    /*  Space between name and svg */
+			    // let spacing  = blockHeight/8;
+			    let spacing = 1;
+			    let heightDifference = blockHeight/3;
+
+			    document.getElementById("bar1").style.width = blockWidth * mondayUsers + "vw";
+			    document.getElementById("bar2").style.width = blockWidth * tuesdayUsers + "vw";
+			    document.getElementById("bar3").style.width = blockWidth * wednesdayUsers + "vw";
+			    document.getElementById("bar4").style.width = blockWidth * thursdayUsers+ "vw";
+			    document.getElementById("bar5").style.width = blockWidth * fridayUsers+ "vw";
+			    document.getElementById("bar6").style.width = blockWidth * saturdayUsers+ "vw";
+			    document.getElementById("bar7").style.width = blockWidth * sundayUsers+ "vw";
+
+			    document.getElementById("text1").setAttribute("x", spacing + blockWidth * mondayUsers + "vw");
+			    document.getElementById("text2").setAttribute("x", spacing + blockWidth * tuesdayUsers+ "vw");
+			    document.getElementById("text3").setAttribute("x", spacing + blockWidth * wednesdayUsers+ "vw");
+			    document.getElementById("text4").setAttribute("x", spacing + blockWidth * thursdayUsers+ "vw");
+			    document.getElementById("text5").setAttribute("x", spacing + blockWidth * fridayUsers+ "vw");
+			    document.getElementById("text6").setAttribute("x", spacing + blockWidth * saturdayUsers+ "vw");
+			    document.getElementById("text7").setAttribute("x", spacing + blockWidth * sundayUsers+ "vw");
+
+			    document.getElementById("text1").setAttribute("y", heightDifference + blockHeight * 0 + "vh");
+			    document.getElementById("text2").setAttribute("y", heightDifference + blockHeight * 1+ "vh");
+			    document.getElementById("text3").setAttribute("y", heightDifference + blockHeight * 2+ "vh");
+			    document.getElementById("text4").setAttribute("y", heightDifference + blockHeight * 3+ "vh");
+			    document.getElementById("text5").setAttribute("y", heightDifference + blockHeight * 4+ "vh");
+			    document.getElementById("text6").setAttribute("y", heightDifference + blockHeight * 5+ "vh");
+			    document.getElementById("text7").setAttribute("y", heightDifference + blockHeight * 6+ "vh");
+			    document.getElementById("text11").setAttribute("y", heightDifference + blockHeight * 0+ "vh");
+			    document.getElementById("text22").setAttribute("y", heightDifference + blockHeight * 1+ "vh");
+			    document.getElementById("text33").setAttribute("y", heightDifference + blockHeight * 2+ "vh");
+			    document.getElementById("text44").setAttribute("y", heightDifference + blockHeight * 3+ "vh");
+			    document.getElementById("text55").setAttribute("y", heightDifference + blockHeight * 4+ "vh");
+			    document.getElementById("text66").setAttribute("y", heightDifference + blockHeight * 5+ "vh");
+			    document.getElementById("text77").setAttribute("y", heightDifference + blockHeight * 6+ "vh");
+
+			    document.getElementById("bar1").setAttribute("y", blockHeight * 0 + "vh");
+			    document.getElementById("bar2").setAttribute("y", blockHeight * 1 + "vh");
+			    document.getElementById("bar3").setAttribute("y", blockHeight * 2 + "vh");
+			    document.getElementById("bar4").setAttribute("y", blockHeight * 3 + "vh");
+			    document.getElementById("bar5").setAttribute("y", blockHeight * 4 + "vh");
+			    document.getElementById("bar6").setAttribute("y", blockHeight * 5 + "vh");
+			    document.getElementById("bar7").setAttribute("y", blockHeight * 6 + "vh");
+
+
+			    document.getElementById("text11").setAttribute("x", blockWidth * mondayUsers/2 + "vw");
+			    document.getElementById("text22").setAttribute("x", blockWidth * tuesdayUsers/2 + "vw");
+			    document.getElementById("text33").setAttribute("x", blockWidth * wednesdayUsers/2 + "vw");
+			    document.getElementById("text44").setAttribute("x", blockWidth * thursdayUsers/2 + "vw");
+			    document.getElementById("text55").setAttribute("x", blockWidth * fridayUsers/2 + "vw");
+			    document.getElementById("text66").setAttribute("x", blockWidth * saturdayUsers/2 + "vw");
+			    document.getElementById("text77").setAttribute("x", blockWidth * sundayUsers/2+ "vw");
+			    console.log("transformed");
+
+			    $("rect").hover(
+			      function(){
+			        $(this).css("opacity", ".3");
+			      },
+			      function(){
+			        $(this).css("opacity", "1");
+			    });
+
+			    $("rect").height("10vh")
+
+			    $("#text11").text(mondayUsers);
+			    $("#text22").text(tuesdayUsers);
+			    $("#text33").text(wednesdayUsers);
+			    $("#text44").text(thursdayUsers);
+			    $("#text55").text(fridayUsers);
+			    $("#text66").text(saturdayUsers);
+			    $("#text77").text(sundayUsers);
+
+				
+			}
+		}
+		xmlhttp.open("GET", "getChartData.php", true);
+		xmlhttp.send();
+    	}

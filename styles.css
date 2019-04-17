@@ -184,3 +184,11 @@ input.unpaid:hover {
 	background-color: rgb(150,0,0);
 }
 
+    .bar {
+      fill: rgb(15, 82, 186);
+    }
+
+figcaption, text {
+    font-weight: bold;
+    margin-bottom: 20px;
+}

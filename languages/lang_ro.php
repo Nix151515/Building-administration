@@ -52,6 +52,8 @@
 	$lang['months'] = "luni";
 	$lang['less_an_hour'] = "Conectare in mai putin de o ora";
 	$lang['searchLabel'] = "Cauta dupa nume, prenume sau camera: ";
+	$lang['chart'] = "Grafic de conectare";
+	$lang['adminPage']= "Utilizatori";
 
 	$lang['rulesTitle'] = "<h2>Drepturile si indatoririle persoanelor care locuiesc in camin</h2>";
 
