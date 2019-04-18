@@ -12,7 +12,7 @@
 <div id='adminMainPage'>
 <ul>
 	<li><a onclick='loadPage(`adminMainPage.php`,`adminMainPage`)'><?php echo $lang['adminPage']; ?></a></li>
-	<li><a onclick='loadPage(`charts.php`,`adminMainPage`); getWidths()'><?php echo $lang['chart']; ?></a></li>
+	<li><a onclick='loadPage(`adminChartPage.php`,`adminMainPage`); getWidths()'><?php echo $lang['chart']; ?></a></li>
 </ul>
 
 

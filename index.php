@@ -3,6 +3,7 @@
 	session_start();
 	require_once("langs.php");
 	require_once("dbconnect.php");
+	$_SESSION['name'] = '';
 ?>
 
 <!DOCTYPE html>
@@ -68,27 +69,27 @@
 
 					for($i = 2; $i< count($files); $i ++)
 					{
-						// echo "File ".$files[$i]."<br>";
+						echo "File ".$files[$i]."<br>";
 						if (strpos($files[$i], 'Page') !== false)
 						{
 							$fileTitle = ucfirst(str_replace("Page.php", "", $files[$i]));
-							echo isset($_SESSION['name']);
-
-							if(isset($_SESSION['name']))
-							{
-								// echo "Set, ".$_SESSION['name']."<br>";
-								if($_SESSION['name'] === 'admin' && strpos($fileTitle, 'Admin'))
-									echo "<a onclick=loadPage('$files[$i]','mainPage')>".$fileTitle."</a><br>";
-								if($_SESSION['name'] !== 'admin' && strpos($fileTitle, 'User'))
-									echo "<a onclick=loadPage('$files[$i]','mainPage')>".$fileTitle."</a><br>";
-							}
-							else
-							{
-								// echo "Not set ". $fileTitle;
-								if(strpos($fileTitle, 'User') === false && strpos($fileTitle, 'Admin') === false)
-									echo "<a onclick=loadPage('$files[$i]','mainPage')>".$fileTitle."</a><br>";
+							// echo isset($_SESSION['name']);
+							// echo $fileTitle."<br>";
+							// if(isset($_SESSION['name']))
+							// {
+							// 	// echo "Set, ".$_SESSION['name']."<br>";
+							// 	if($_SESSION['name'] === 'admin' && strpos($fileTitle, 'Admin'))
+							// 		echo "<a onclick=loadPage('$files[$i]','mainPage')>".$fileTitle."</a><br>";
+							// 	if($_SESSION['name'] !== 'admin' && strpos($fileTitle, 'User'))
+							// 		echo "<a onclick=loadPage('$files[$i]','mainPage')>".$fileTitle."</a><br>";
+							// }
+							// else
+							// {
+							// 	// echo "Not set ". $fileTitle;
+							// 	if(strpos($fileTitle, 'User') === false && strpos($fileTitle, 'Admin') === false)
+							// 		echo "<a onclick=loadPage('$files[$i]','mainPage')>".$fileTitle."</a><br>";
 								
-							}
+							// }
 						}
 					}
 				?>

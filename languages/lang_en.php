@@ -53,6 +53,7 @@
 	$lang['searchLabel'] = "Search by first name, last name or room: ";
 	$lang['chart'] = "Connection chart";
 	$lang['adminPage']= "Users";
+	$lang['chartTitle'] = "Number of users connected";
 
 	$lang['rulesTitle'] = "<h2> The rights and duties of people living in the housing </h2>";
 
