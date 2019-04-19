@@ -119,4 +119,6 @@ $sql = "SELECT * FROM utilizatori;";
 			</div>
 		</div>';
 ?>
+
 </div>
+

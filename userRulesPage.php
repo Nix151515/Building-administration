@@ -2,7 +2,8 @@
 	session_start();
 	// require_once("langs.php");
 	require_once("dbconnect.php");
-include 'languages/lang_'.$_SESSION['lang'].'.php';
+	include 'languages/lang_'.$_SESSION['lang'].'.php';
+	$name = $_SESSION['name'];
 	?>
 
 <!DOCTYPE html>
