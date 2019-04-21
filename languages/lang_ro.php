@@ -57,6 +57,7 @@
 	$lang['chartTitle'] = "Numarul de utilizatori conectati";
 
 	$lang['rulesTitle'] = "<h2>Drepturile si indatoririle persoanelor care locuiesc in camin</h2>";
+	$lang['uploadLabel'] = "Alege un fisier pentru incarcare";
 
 	$lang['art25'] = "<h3>Art. 25. Persoanele cazate in camin au dreptul:</h3>
 		<ol type='a'>

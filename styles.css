@@ -8,6 +8,7 @@
 .centered {
 	width: 50%;
 	margin: 0 auto;
+	padding: 10px;
 }
 
 .half {
@@ -163,8 +164,9 @@ html {
 #userFetchedData, h2#userName h2#userSurname{
 	background-color: rgb(15, 82, 186);
 	color: white;
-	width: 70%;
+	width: 60%;
 	margin: 0 auto;
+	max-height : 15%;
 }
 
 h3, h2, h4, h1{
@@ -191,4 +193,30 @@ input.unpaid:hover {
 figcaption, text {
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+
+
+html {
+	background: url("pictures/camin2.jpg") no-repeat center;
+	background-color: rgb(173,155,100);
+	background-size: 100% 100%;
+}
+
+form >div  {
+	background-color: rgb(88, 139, 174);
+	margin: 10px;
+}
+
+#userPageContent, div#usersComp, svg.chart {
+	background-color: rgb(173,155,100)
+}
+
+svg.chart {
+	padding: 20px;
+	max-width: 100%;
+}
+
+#searchField{
+	text-align: left
 }

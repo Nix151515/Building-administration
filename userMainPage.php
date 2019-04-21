@@ -67,7 +67,7 @@
 
 				$valuePaid2 = $lastMonth." (".$lang['paid'].")";
 				$valueUnpaid2 = $lastMonth." (".$lang['unpaid'].")";
-
+				echo "<div class='centered'>";
 				if($out["month1"] == 0)
 					echo "<input type='button' 
 						value="."'".$valueUnpaid."'"." 
@@ -85,6 +85,7 @@
 					echo "<input type='button' 
 						value="."'".$valuePaid2."'"."
 						class='paid' disabled><br>";
+				echo "</div>";
 		}
 	?>
 	

@@ -1,10 +1,10 @@
 <?php
-
 	require_once("dbconnect.php");
 	error_reporting(E_ERROR | E_PARSE);
 	session_start();
 	include 'languages/lang_'.$_SESSION['lang'].'.php';
 	
+	/*  Creating the string for the last connection data  */
 	$query = "SELECT * FROM $table WHERE `id` = '".$_GET['id']."'";
 	$result = mysqli_query($connect, $query);	
 	if($result) {

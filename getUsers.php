@@ -44,7 +44,7 @@
 					$valuePaid2 = $lastMonth." (".$lang['paid'].")";
 					$valueUnpaid2 = $lastMonth." (".$lang['unpaid'].")";
 
-					echo "<div class='user'>";
+					echo "<div class='user' style='width:240px; float:left; padding:2%'>";
 					if($interval->d == 0 && $interval->m == 0 && $interval->y == 0)
 						echo "<img class='icon' src='pictures/Bullet-green.png'></img>";
 					else
@@ -100,7 +100,7 @@
 					$valuePaid2 = $lastMonth." (".$lang['paid'].")";
 					$valueUnpaid2 = $lastMonth." (".$lang['unpaid'].")";
 
-					echo "<div class='user'>";
+					echo "<div class='user' style='width:240px; float:left; padding:2%'>";
 					if($interval->d == 0 && $interval->m == 0 && $interval->y == 0)
 						echo "<img class='icon' src='pictures/Bullet-green.png'></img>";
 					else

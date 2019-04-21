@@ -20,10 +20,9 @@
       <li><a onclick='loadPage(`adminChartPage.php`,`adminMainPage`) getWidths()'><?php echo $lang['chart']; ?></a></li>
     </ul>
    
-      <figure>
-        <figcaption><?php echo $lang['chartTitle'];?></figcaption>
+      <figure style="font-weight: bold">
+        <h2><?php echo $lang['chartTitle'];?></h2>
         <svg class="chart" aria-labelledby="title" role="img" width="100vw" height="90vh">
-          <!-- <title id="title">A bart chart showing information</title> -->
 
           <g class="bar">
             <text id="text1"><?php echo $lang['monday'];?></text>

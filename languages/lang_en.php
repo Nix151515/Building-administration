@@ -54,11 +54,12 @@
 	$lang['chart'] = "Connection chart";
 	$lang['adminPage']= "Users";
 	$lang['chartTitle'] = "Number of users connected";
+	$lang['uploadLabel'] = "Select file to upload";
 
 	$lang['rulesTitle'] = "<h2> The rights and duties of people living in the housing </h2>";
 
-	$lang['art25'] = "<h3>Art. 25. The persons staying in the housing have the right:</h3>
-	<ol type = 'a'>
+	$lang['art25'] = "<h3 >Art. 25. The persons staying in the housing have the right:</h3>
+	<ol type = 'a' style='background-color: rgb(173,155,100)'>
 	<li> choose and be elected to the student council; </ li>
 	<li> make suggestions and suggestions to the administration and the higher education institution about improving living and study conditions in the housing and related spaces. </ li>
 	<li> to participate in all the actions organized in the housing, regardless of their nature; </ li>
@@ -70,7 +71,7 @@
 	</ol>";
 
 	$lang['art26'] = "<h3>Art. 26. The persons staying in the housing are obliged:</h3>
-		<ol type = 'a'>
+		<ol type = 'a' style='background-color: rgb(173,155,100)'>
 		<li> participate in organized events in the housing when they are specially organized </ li>
 		<li> to participate in the entire maintenance of the housing and to maintain cleanliness in all the spaces of the housing and the related ones. </ li>
 		<li> respect the daily work schedule and internal rules set by the administration of the housing (the board of directors and the administrator); </ li>

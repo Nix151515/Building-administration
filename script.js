@@ -39,7 +39,7 @@ function showInfo(id) {
 
 
 			map = new google.maps.Map(document.getElementById('userMap'), mapOptions);
-			document.getElementById('userMap').style.height = "60vh";
+			document.getElementById('userMap').style.height = "50vh";
 			document.getElementById('userMap').style.width = "100%";
 
 			var marker = new google.maps.Marker({
@@ -284,7 +284,7 @@ function codeAddress(){
 
 
 				let blockWidth = 5;
-			    let blockHeight = 10;
+			    let blockHeight = 11;
 			    /*  Space between name and svg */
 			    // let spacing  = blockHeight/8;
 			    let spacing = 1;

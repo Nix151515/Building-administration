@@ -5,7 +5,6 @@
 	include 'languages/lang_'.$_SESSION['lang'].'.php';
 	require_once("dbconnect.php");
 	$name = $_SESSION['name'];
-	// require_once("index.php");
 ?>
 
 
@@ -33,8 +32,6 @@
 
 
 <?php
-	// echo "<input type='button' value='See users chart' onclick='loadPage(`charts.php`, `mainPage`)'>";
-
 
 $sql = "SELECT * FROM utilizatori;";	
 	$result = mysqli_query($connect,$sql);
@@ -42,14 +39,15 @@ $sql = "SELECT * FROM utilizatori;";
 	{
 		$now = new DateTime();
 
-		echo "<div id='users' style='width: 70%; margin: 0 auto;'>";
-		echo $lang['searchLabel'];
+		/*  Search bar  */
+		echo "<div id='users' style='width: 60%; margin: 0 auto;'>";
+		echo "<h3 id='searchField'>".$lang['searchLabel']."</h3>";
 		echo "<input type='text' onkeyup='getUserrs(this)' />";
-		echo "<div id='usersComp' style='overflow-y:auto; height:76vh;'>";
-
+		echo "<div id='usersComp' style='overflow-y:auto; height:76vh; padding:10px'>";
 
 		while($out = mysqli_fetch_assoc($result))
 		{
+			/*  Getting the payments value for the last 2 months  */
 			$lastTime = new DateTime(date($out['login']));
 			$interval = $now->diff($lastTime);
 
@@ -62,7 +60,8 @@ $sql = "SELECT * FROM utilizatori;";
 			$valuePaid2 = $lastMonth." (".$lang['paid'].")";
 			$valueUnpaid2 = $lastMonth." (".$lang['unpaid'].")";
 
-			echo "<div class='user'>";
+			/*  Display the user */
+			echo "<div class='user' style='width:240px; float:left; padding:2%'>";
 			if($interval->d == 0 && $interval->m == 0 && $interval->y == 0)
 				echo "<img class='icon' src='pictures/Bullet-green.png'></img>";
 			else
@@ -110,7 +109,8 @@ $sql = "SELECT * FROM utilizatori;";
 
 <?php 
 	/*	The map and user data 	*/
-		echo '<div id="userData">
+		echo 
+		'<div id="userData">
 			<div id="userFetchedData">
 				<h2 id="userName"></h2>
 				<h2 id="userSurname"></h2>
